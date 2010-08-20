@@ -34,6 +34,14 @@ module Arel
           @expression.to_attribute(@relation).should == Attribute.new(@relation, @expression.alias, :ancestor => @expression)
         end
       end
+      
+      describe '#type_cast' do
+        it "casts by default to the original type were the expression is based on" do
+          lambda {
+            @relation.project(@expression).first[@expression]
+          }.should_not raise_error
+        end
+      end
     end
   end
 end
