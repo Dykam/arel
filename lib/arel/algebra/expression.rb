@@ -4,7 +4,7 @@ module Arel
     alias :name :alias
 
     def initialize(attribute, aliaz = nil, ancestor = nil)
-      super(attribute.relation, aliaz, :alias => aliaz, :ancestor => ancestor)
+      super(attribute.relation, aliaz, :alias => aliaz, :ancestor => ancestor || attribute)
       @attribute = attribute
     end
 
